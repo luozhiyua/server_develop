@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Cloud</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+    <body>
+        <h2>Spring Boot Contact</h2>
+        <form method="POST" th:object="${contact}">
+            <label for="firstName"> First Name:</label>
+            <input type="text" id="firstName" th:field="*{firstName}"/>
+            <span class="validationError"
+                    th:if="${#fields.hasErrors('firstName')}"
+                    th:errors="*{firstName}">
+                firstName
+            </span>
+            <br/>
+
+            <label for="lastName"> Last Name:</label>
+            <input type="text" id="lastName" th:field="*{lastName}"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}">
+                lastName
+            </span>
+            <br/>
+
+            <label for="phoneNumber"> Phone Number:</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('phoneNumber')}"
+                  th:errors="*{phoneNumber}">
+                phoneNumber
+            </span>
+            <br/>
+
+            <label for="emailAddress"> Email Address:</label>
+            <input type="text" id="emailAddress" th:field="*{emailAddress}"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('emailAddress')}"
+                  th:errors="*{emailAddress}">
+                emailAddress
+            </span>
+            <br/>
+
+            <input type="submit">
+        </form>
+
+        <ul th:if="${not #lists.isEmpty(contacts)}" th:each="contact : ${contacts.getContacts()}">
+            <li>
+                <span th:text="${contact.firstName}"> firstName </span>
+                <span th:text="${contact.lastName}"> lastName </span>
+                <span th:text="${contact.phoneNumber}"> phoneNumber </span>
+                <span th:text="${contact.emailAddress}"> emailAddress </span>
+            </li>
+        </ul>
+        <p th:unless="${not #lists.isEmpty(contacts)}">No contacts available</p>
+
+    </body>
+</html>

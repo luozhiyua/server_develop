@@ -1,53 +1,33 @@
 package com.example.contact.contact;
 
+import com.sun.istack.internal.NotNull;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import lombok.Data;
+
 import java.util.Objects;
 
+@Data
 public class Contact {
     private Long id;
+
+    @NotNull
+    @Size(min = 1,message = "名字至少有1个字符")
     private String firstName;
+
+    @NotNull
+    @Size(min = 1,message = "名字至少有1个字符")
     private String lastName;
+
+    @Pattern(regexp = "^1([34578])\\d{9}$", message = "无效的手机号")
     private String phoneNumber;
+
+    @NotBlank(message = "此处不能为空")
+    @Email
     private String emailAddress;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
 
     @Override
     public String toString() {
