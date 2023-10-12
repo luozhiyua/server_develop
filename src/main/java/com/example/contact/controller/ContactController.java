@@ -1,7 +1,8 @@
 package com.example.contact.controller;
 
 import com.example.contact.contact.Contact;
-import com.example.contact.contact.Contacts;
+import com.example.contact.data.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,16 +11,21 @@ import org.springframework.validation.Errors;
 
 @Controller
 @RequestMapping("/contact")
-@SessionAttributes("contacts")
 public class ContactController {
+    private final ContactRepository contactRepository;
+    @Autowired
+    public ContactController(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
+
     @ModelAttribute(name = "contact")
     public Contact contact(){
         return new Contact();
     }
 
     @ModelAttribute(name = "contacts")
-    public Contacts contacts(){
-        return new Contacts();
+    public Iterable<Contact> contacts(){
+        return contactRepository.findAll();
     }
 
     @GetMapping
@@ -29,12 +35,11 @@ public class ContactController {
 
     @PostMapping
     public String processContact(
-            @Valid Contact contact, Errors errors,
-            @ModelAttribute Contacts contacts
+            @Valid Contact contact, Errors errors
     ){
         if(errors.hasErrors())return "contact";
-        contacts.save(contact);
-        return "contact";
+        contactRepository.save(contact);
+        return "redirect:/contact";
     }
 
 }

@@ -2,6 +2,10 @@ package com.example.contact.contact;
 
 import com.sun.istack.internal.NotNull;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -11,7 +15,10 @@ import lombok.Data;
 import java.util.Objects;
 
 @Data
+@Entity
 public class Contact {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull

@@ -48,7 +48,7 @@
             <input type="submit">
         </form>
 
-        <ul th:if="${not #lists.isEmpty(contacts)}" th:each="contact : ${contacts.getContacts()}">
+        <ul th:if="${not #lists.isEmpty(contacts)}" th:each="contact : ${contacts}">
             <li>
                 <span th:text="${contact.firstName}"> firstName </span>
                 <span th:text="${contact.lastName}"> lastName </span>

@@ -1,7 +1,6 @@
 package com.example.contact;
 
 import com.example.contact.config.ApplicationConfig;
-import com.example.contact.config.ContactConfigAOP;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
