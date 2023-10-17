@@ -1,4 +1,9 @@
+#spring:
+#  datasource:
+#    generate-unique-name: false
+#    name: contactCloudTest
+
 spring:
-  datasource:
-    generate-unique-name: false
-    name: contactCloudTest
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
