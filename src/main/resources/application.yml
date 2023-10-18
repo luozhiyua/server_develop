@@ -3,6 +3,10 @@
 #    generate-unique-name: false
 #    name: contactCloudTest
 
+logging:
+  level:
+    org.springframework.security: debug
+
 spring:
   data:
     mongodb:

@@ -79,12 +79,19 @@
         </dependency>
         <!-- end::springDataMongoDb[] -->
         <!-- tag::flapDoodle[] -->
-        <!--    <dependency>-->
-        <!--      <groupId>de.flapdoodle.embed</groupId>-->
-        <!--      <artifactId>de.flapdoodle.embed.mongo</artifactId>-->
-        <!--      &lt;!&ndash; <scope>test</scope> &ndash;&gt;-->
-        <!--    </dependency>-->
+            <dependency>
+              <groupId>de.flapdoodle.embed</groupId>
+              <artifactId>de.flapdoodle.embed.mongo</artifactId>
+              <!-- <scope>test</scope> -->
+            </dependency>
         <!-- end::flapDoodle[] -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
