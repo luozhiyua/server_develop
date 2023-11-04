@@ -1,7 +1,7 @@
 package com.example.contact.data;
 
 import com.example.contact.contact.Contact;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ContactRepository extends CrudRepository<Contact,String> {
+public interface ContactRepository extends JpaRepository<Contact,Long> {
 }

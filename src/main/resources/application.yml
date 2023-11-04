@@ -1,13 +1,4 @@
-#spring:
-#  datasource:
-#    generate-unique-name: false
-#    name: contactCloudTest
-
-logging:
-  level:
-    org.springframework.security: debug
-
 spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/test
+  datasource:
+    generate-unique-name: false
+    name: contactCloudTest
